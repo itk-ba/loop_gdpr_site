@@ -2,6 +2,11 @@
   height: 50px;
 }
 
+.js--search {
+  margin-bottom: 1.5em;
+  position: relative;
+}
+
 .search-filter--links {
   overflow: hidden;
   margin-bottom: 1.5em;
@@ -24,5 +29,17 @@
   display: block;
   padding: .5em 0;
   text-align: center;
-  color:$white;
+  color: white;
+}
+
+@media only screen and (min-width : 490px) {
+  .search-filter--link-wrapper {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width : 960px) {
+  .search-filter--link-wrapper {
+    width: 25%;
+  }
 }
