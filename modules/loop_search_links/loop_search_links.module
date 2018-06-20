@@ -1,0 +1,61 @@
+<?php
+
+/**
+ * @file
+ * Provide search links.
+ */
+
+/**
+ * Implements hook_block_info().
+ *
+ * Add search links block.
+ */
+function loop_search_links_block_info() {
+  $blocks = array();
+  $blocks['loop_search_links_block'] = array(
+    'info' => t('Loop search links'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ *
+ * Display a search links block.
+ */
+function loop_search_links_block_view($delta = '') {
+  $block = array();
+  $items = array();
+  $name = 'subject';
+  $vocabulary = taxonomy_vocabulary_machine_name_load($name);
+  $tree = taxonomy_get_tree($vocabulary->vid);
+  foreach ($tree as $term) {
+    $items[$term->tid]['name'] = $term->name;
+    $items[$term->tid]['color'] = field_get_items('taxonomy_term', taxonomy_term_load($term->tid), 'field_color')['0']['rgb'];
+    $items[$term->tid]['path'] = '/#/#' . urlencode('filters[taxonomy]') . '=' . urlencode(urlencode('field_subject:') . $term->name) . '&pager=0:8';
+  }
+
+  switch ($delta) {
+    case 'loop_search_links_block':
+      $variables = array('items' => $items);
+      $block['content'] = theme('loop_search_links_block', $variables);
+      break;
+  }
+  return $block;
+}
+
+/**
+ * Implements hook_theme().
+ *
+ * Theme search links block.
+ */
+function loop_search_links_theme() {
+  return array(
+    'loop_search_links_block' => array(
+      'variables' => array(),
+      'template' => 'templates/loop_search_links_block',
+    ),
+  );
+}

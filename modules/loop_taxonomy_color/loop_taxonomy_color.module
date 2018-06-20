@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * @file
+ * Provide taxonomy color variable and theme settings.
+ */
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Add available colors to form item.
+ */
+function loop_taxonomy_color_form_taxonomy_form_term_alter(&$form, &$form_state) {
+  $link_colors = explode(',', variable_get('loop_taxonomy_color'));
+  $form_state['field']['field_color']['und']['field']['settings']['default_colors'] = '#000000';
+  $form['field_color'][LANGUAGE_NONE][0]['rgb']['#attached']['js'][2]['data']['color_field']['#div-field-color-und-0--rgb']['colors'] = $link_colors;
+}
+
+/**
+ * Implements hook_form_system_theme_settings_alter().
+ *
+ * Add taxonomy color field to theme form.
+ */
+function loop_taxonomy_color_form_system_theme_settings_alter(&$form, &$form_state) {
+  $form['loop_taxonomy_color_theme_colors'] = array(
+    '#title' => t('Search links colors'),
+    '#type' => 'textarea',
+    '#description' => t('A comma seperated list of Hex colors to choose from in subject taxonomy'),
+    '#default_value' => variable_get('loop_taxonomy_color'),
+  );
+
+  $form['#submit'][] = '_loop_taxonomy_color_save';
+}
+
+/**
+ * Custom submit handler for settings loop_taxonomy_color variable.
+ *
+ * @param array $form
+ *   The theme settings form.
+ * @param array $form_state
+ *   The state of the form.
+ */
+function _loop_taxonomy_color_save(array $form, array $form_state) {
+  variable_set('loop_taxonomy_color', $form_state['values']['loop_taxonomy_color_theme_colors']);
+}

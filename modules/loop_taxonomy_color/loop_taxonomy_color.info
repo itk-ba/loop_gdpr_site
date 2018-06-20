@@ -1,0 +1,9 @@
+name = Loop taxonomy color
+description = Provides a color field for subject taxonomy
+core = 7.x
+package = Loop
+dependencies[] = color_field
+dependencies[] = features
+features[features_api][] = api:2
+features[field_base][] = field_color
+features[field_instance][] = taxonomy_term-subject-field_color

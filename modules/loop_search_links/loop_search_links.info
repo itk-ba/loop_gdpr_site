@@ -1,0 +1,6 @@
+name = Loop search links
+description = Provides af block for search links with configurable colors in taxonomy
+core = 7.x
+package = Loop
+dependencies[] = loop_taxonomy_color
+features[features_api][] = api:2
