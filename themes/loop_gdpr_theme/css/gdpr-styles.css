@@ -32,19 +32,19 @@
 }
 
 @media only screen and (max-width : 489px) {
-  .search-filter--link-wrapper {
+  .search-filter--links .search-filter--link-wrapper {
     width: 100%;
   }
 }
 
 @media only screen and (min-width : 490px) {
-  .search-filter--link-wrapper {
+  .search-filter--links .search-filter--link-wrapper {
     width: 50%;
   }
 }
 
 @media only screen and (min-width : 960px) {
-  .search-filter--link-wrapper {
+  .search-filter--links .search-filter--link-wrapper {
     width: 25%;
   }
 }
