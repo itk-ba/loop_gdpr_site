@@ -1,3 +1,28 @@
 .page-node .comments--comment-meta-data {
   height: 50px;
 }
+
+.search-filter--links {
+  overflow: hidden;
+  margin-bottom: 1.5em;
+}
+.search-filter--links .search-filter--label {
+  padding: 0 1em;
+}
+
+.search-filter--links .search-filter--link-wrapper {
+  width: 100%;
+  padding: 1em;
+  box-sizing: border-box;
+  float: left;
+}
+
+.search-filter--links .search-filter--link {
+  border-radius:.4em;
+  text-decoration: none;
+  width: 100%;
+  display: block;
+  padding: .5em 0;
+  text-align: center;
+  color:$white;
+}
