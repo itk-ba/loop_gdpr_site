@@ -146,7 +146,7 @@ if (isset($primary_menu_block['content'])): ?>
       <?php print render($search['content']); ?>
       <?php if (isset($search_links) && $is_front == TRUE): ?>
         <?php print render($search_links['content']); ?>
-      <?php endif; ?>f
+      <?php endif; ?>
     </div>
   </div>
 <?php endif; ?>
