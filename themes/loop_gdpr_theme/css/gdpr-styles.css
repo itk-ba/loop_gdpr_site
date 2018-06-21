@@ -19,14 +19,16 @@
   width: 100%;
   padding: 1em;
   box-sizing: border-box;
-  float: left;
+  display: inline-block;
+  margin-left: -4px;
+  vertical-align: top;
 }
 
 .search-filter--links .search-filter--link {
   border-radius:.4em;
   text-decoration: none;
   display: block;
-  padding: .5em 0;
+  padding: .5em;
   text-align: center;
   color: white;
 }
