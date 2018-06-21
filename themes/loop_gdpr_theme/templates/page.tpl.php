@@ -144,9 +144,9 @@ if (isset($primary_menu_block['content'])): ?>
   <div class="typeahead-block is-node-search">
     <div class="typeahead-block--wrapper">
       <?php print render($search['content']); ?>
-      <?php if (isset($search_links)): ?>
+      <?php if (isset($search_links) && $is_front == TRUE): ?>
         <?php print render($search_links['content']); ?>
-      <?php endif; ?>
+      <?php endif; ?>f
     </div>
   </div>
 <?php endif; ?>
