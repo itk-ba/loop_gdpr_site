@@ -58,7 +58,10 @@
       <div class="search-result">
         <div class="search-result--lead">
           <p><?php print t('You searched for:');?> <strong><?php print $keys;?></strong></p>
-          <div class="messages warning"><?php print t('No results found');?></div>
+          <div class="messages warning">
+            <h3><?php print t('No results found');?></h3>
+            <p><?php print t('If you cannot find an answer to your question you should contact the data protection officer in your magistrate');?></p>
+          </div>
         </div>
       </div>
     </div>
