@@ -34,7 +34,9 @@ function loop_search_links_block_view($delta = '') {
   foreach ($tree as $term) {
     $items[$term->tid]['name'] = $term->name;
     $items[$term->tid]['color'] = field_get_items('taxonomy_term', taxonomy_term_load($term->tid), 'field_color')['0']['rgb'];
-    $items[$term->tid]['path'] = '/#/#' . urlencode('filters[taxonomy]') . '=' . urlencode(urlencode('field_subject:') . $term->name) . '&pager=0:8';
+    // Use taxonomy pages as path for sites without search node
+    //$items[$term->tid]['path'] = '/#/#' . urlencode('filters[taxonomy]') . '=' . urlencode(urlencode('field_subject:') . $term->name) . '&pager=0:8';
+    $items[$term->tid]['path'] = '/taxonomy/term/' . $term->tid;
   }
 
   switch ($delta) {
