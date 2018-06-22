@@ -106,11 +106,9 @@ if (isset($primary_menu_block['content'])): ?>
       </a>
     <?php endif; ?>
     <div class="nav--wrapper">
-      <?php if (!empty($main_menu_block['content'])) : ?>
-        <nav class="nav">
-          <?php print render($main_menu_block['content']); ?>
-        </nav>
-      <?php endif; ?>
+      <nav class="nav">
+        <?php print render($main_menu_block['content']); ?>
+      </nav>
       <?php if (!empty($primary_menu_block['content'])) : ?>
         <nav class="nav-dropdown">
           <?php print render($primary_menu_block['content']); ?>

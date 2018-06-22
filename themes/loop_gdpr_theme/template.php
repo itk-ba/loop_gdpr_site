@@ -22,3 +22,23 @@ function loop_gdpr_theme_preprocess_page(&$variables) {
     }
   }
 }
+
+/**
+ * Implements theme_menu_link().
+ */
+function loop_gdpr_theme_menu_link__main_menu($variables) {
+  $element = $variables['element'];
+
+  // Add images to links depending on the path of the link.
+  switch ($element['#href']) {
+    case '<front>':
+      $element['#attributes']['class'][] = 'is-hidden';
+      break;
+  }
+
+  $element['#localized_options']['attributes']['class'][] = 'is-hidden';
+
+  $output = l($element['#title'], $element['#href'], $element['#localized_options']);
+
+  return $output . "\n";
+}
